@@ -261,10 +261,11 @@ class DouyinService(Service):
         # 无水印
         nwm_video_url = wm_video_url.replace('playwm', 'play')
         nwm_video_url_HQ = f"https://aweme.snssdk.com/aweme/v1/play/?video_id={uri}&ratio=1080p&line=0"
-        return Result.success(json.dumps({
-            "code":200,
-            "data":nwm_video_url_HQ
-        } ))
+        # return Result.success(json.dumps({
+        #     "code":200,
+        #     "data":nwm_video_url_HQ
+        # } ))
+        return Result.success(nwm_video_url_HQ)
 
     @staticmethod
     def get_image(data) -> Result:

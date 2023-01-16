@@ -73,7 +73,7 @@ class Service:
             return Service.stream(file, filename)
 
         result = cls.fetch(url, mode=mode)
-        print(result+'75行')
+        # result =resultTem.data
         if not result.is_success():
             return HttpResponseServerError(result.get_data())
 
@@ -86,10 +86,10 @@ class Service:
             if res is not None:
                 return res
         else:
+            print(result)
             res = http_utils.get(url=result.get_data(), header=header)
             if http_utils.is_error(res):
                 return HttpResponseServerError(str(res))
-
             store.save(vtype, res, index, result.extra)
             res.close()
 

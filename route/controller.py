@@ -39,8 +39,9 @@ def download(vtype: Video, request):
 
     service = handler_mapper.get_service(vtype)
     logger.info('download {} <== {}.'.format(vtype.label, url))
-    # response = service.download(url)
-    response = service.proxy_download(url)
+    response = service.download(url)
+
+    # response = service.proxy_download(url)
     return response
 
 
